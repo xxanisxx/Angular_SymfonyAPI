@@ -1,0 +1,70 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          {{ articleTitle.title }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngFor="let comment of comments.comments">
+        <p class="modal-title" id="exampleModalLongTitle">
+          <i class="fa fa-user" aria-hidden="true"></i> &nbsp;{{
+            comment.owner.name
+          }}<br />
+
+          {{ comment.content }}<br /><span class="badge badge-info">{{
+            comment.createdAt | date
+          }}</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <textarea
+          class="form-control"
+          id="exampleTextarea"
+          [(ngModel)]="inputComment.content"
+          (keyup.enter)="commentToArticle(articleId.id)"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card text-center mt-5" *ngFor="let article of articles">
+  <div class="card-header">
+    {{ article.author.name }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ article.title }}</h5>
+    <p class="card-text">{{ article.content }}</p>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-toggle="modal"
+      data-target="#exampleModalLong"
+      (click)="getArticleComment(article.id)"
+    >
+      Show Comments
+    </button>
+  </div>
+  <div class="card-footer text-muted">
+    {{ article.createdAt | date }}
+  </div>
+</div>

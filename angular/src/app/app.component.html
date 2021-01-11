@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Articlehub</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/articles" routerLinkActive="active"
+          >Articles</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profil" routerLinkActive="active"
+          >Profil</a
+        >
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <a
+        class="nav-link"
+        *ngIf="!userLoggedIn()"
+        routerLink="/login"
+        routerLinkActive="active"
+        >Login</a
+      >
+      <a
+        class="nav-link"
+        *ngIf="!userLoggedIn()"
+        routerLink="/register"
+        routerLinkActive="active"
+        >Register</a
+      >
+      <a
+        class="nav-link"
+        *ngIf="userLoggedIn()"
+        style="cursor: pointer"
+        (click)="userLoggedOut()"
+        >Logout</a
+      >
+    </ul>
+  </div>
+</nav>
+<div class="container mt-5">
+  <router-outlet></router-outlet>
+</div>
