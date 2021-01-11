@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticleComponent } from './article/article.component';
-import { LoginGuard } from './login.guard';
+import { LoginsGuard } from './guard/logins.guard';
+import { RegistersGuard } from './guard/registers.guard';
+import { UsersGuard } from './guard/users.guard';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
-import { RegisterGuard } from './register.guard';
 import { RegisterComponent } from './register/register.component';
-import { UserGuard } from './user.guard';
 
 const routes: Routes = [
   {
     path: 'articles',
     component: ArticleComponent,
-    canActivate: [UserGuard]
+    canActivate: [UsersGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginsGuard]
   },
   {
     path: 'register',
     component: RegisterComponent,
-    canActivate: [RegisterGuard]
+    canActivate: [RegistersGuard]
   },
   {
     path: 'profil',

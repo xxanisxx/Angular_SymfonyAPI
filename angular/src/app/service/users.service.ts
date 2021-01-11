@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class UsersService {
 
-readonly APIUrl = 'http://192.168.1.112/api';
+readonly APIUrl = 'http://192.168.1.113/api';
 constructor(private http: HttpClient, private router: Router) { }
 
   registerUser(user: any) {

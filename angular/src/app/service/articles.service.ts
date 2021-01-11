@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ArticlesService {
-  readonly APIUrl = 'http://192.168.1.112/api';
+  readonly APIUrl = 'http://192.168.1.113/api';
   constructor(private http: HttpClient) { }
 
   getArticles() {
